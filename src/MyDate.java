@@ -14,7 +14,7 @@ public class MyDate {
 
     public void setDay(int day) {
         if (day > 31 || day <1)
-            return;
+            throw new IllegalArgumentException("erreur format : jour");
         this.day = day;
     }
 
@@ -24,7 +24,7 @@ public class MyDate {
 
     public void setYear(int year) {
         if (year < 1)
-            return;
+            throw new IllegalArgumentException("erreur format : year");
         this.year = year;
     }
 
@@ -34,7 +34,7 @@ public class MyDate {
 
     public void setMonth(int month) {
         if (month > 12 || month <1)
-            return;
+            throw new IllegalArgumentException("erreur format : mois");
         this.month = month;
     }
 }
