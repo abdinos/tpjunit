@@ -1,0 +1,17 @@
+describe('empty spec', () => {
+  it('passes', () => {
+    cy.visit('http://localhost:3000')
+    cy.get('#root > div > main > div > table > tr:nth-child(1) > td:nth-child(2) > a:nth-child(3) > span').click()
+    cy.url().should('include','/results/1')
+    cy.get('#root > div > main > div > div > div.sa-tabulator__header > div.sa-table__header-extensions > div > select').select(0)
+    cy.get('#root > div > main > div > div > div.sa-tabulator__header > div.sa-table__header-extensions > input').type('Neutral')
+    cy.wait(500)
+        cy.get('#root > div > main > div > div > div.sa-tabulator__header > div.sa-table__header-extensions > input').type('{enter}')
+          cy.get('#root > div > main > div > div > div.sa-tabulator__header > div.sa-table__header-extensions > input').type('{selectAll}')
+    cy.wait(500)
+        cy.get('#root > div > main > div > div > div.sa-tabulator__header > div.sa-table__header-extensions > input').type('{backspace}')
+        cy.wait(500)
+        cy.get('#root > div > main > div > div > div.sa-tabulator__header > div.sa-table__header-extensions > input').type('{enter}')
+        cy.get('#root > div > main > div > div > div.tabulator > div.tabulator-tableHolder > div > div > div:nth-child(12)').scrollIntoView({ duration: '1000' },{ easing: 'linear' })
+  })
+})
